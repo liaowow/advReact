@@ -13,3 +13,8 @@ Coding along with Wes Bos' [Fullstack Advanced React and GraphQL](https://advanc
     - Node
     - MongoDB
 
+### [Styled Components](https://styled-components.com/)
+- Styled-components is a library that helps you create React components already with a style. 
+- It removes the mapping between components and styles. This means that when you're defining your styles, you're actually creating a normal React component that has your styles attached to it.
+- [Advanced Usage of Styled Components](https://dev.to/olenadrugalya/advanced-usage-of-styled-components-for-your-react-app-2hfh) via DEV blog
+
