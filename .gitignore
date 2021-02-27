@@ -8,3 +8,6 @@ layout.md
 variables.env
 *.env
 .keystone
+*.zip
+notes.md
+catch-of-the-day/build/
