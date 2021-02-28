@@ -32,7 +32,6 @@ class App extends React.Component {
     base.removeBinding(this.ref);
   }
 
-
   addFish = fish => {
     // take a copy of existing state
     const fishes = {...this.state.fishes};
@@ -47,6 +46,15 @@ class App extends React.Component {
     const fishes = { ...this.state.fishes };
     // update the state
     fishes[key] = updatedFish;
+    // set the new state
+    this.setState({ fishes });
+  }
+
+  deleteFish = (key) => {
+    // take a copy of existing state
+    const fishes = { ...this.state.fishes };
+    // update the state
+    fishes[key] = null;
     // set the new state
     this.setState({ fishes });
   }
@@ -66,11 +74,20 @@ class App extends React.Component {
     this.setState({ order });
   }
 
+  removeFromOrder = (key) => {
+    // take a copy of existing state
+    const order = {...this.state.order};
+    // remove item from order
+    delete order[key];
+    // set the state
+    this.setState({ order });
+  }
+
   render() {
     return (
       <div className="catch-of-the-day">
         <div className="menu">
-          <Header tagline="I Am Cool" age={999} />
+          <Header tagline="Fighting COVID" age={19} />
           <ul className="fishes">
             {Object.keys(this.state.fishes).map(key => (
               <Fish key={key} 
@@ -84,10 +101,12 @@ class App extends React.Component {
         <Order 
           fishes={this.state.fishes} 
           order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
         />
         <Inventory 
           addFish={this.addFish} 
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes} 
           fishes={this.state.fishes}
         />
